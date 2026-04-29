@@ -17,20 +17,20 @@ if ! command -v /Users/songhune/.pyenv/versions/3.10.10/bin/python >/dev/null 2>
   exit 1
 fi
 
-/Users/songhune/.pyenv/versions/3.10.10/bin/python build_reference_docx.py
+/Users/songhune/.pyenv/versions/3.10.10/bin/python garbage/build_reference_docx.py
 
-tmp_docx="proposal.raw.docx"
+tmp_docx="docx/proposal.raw.docx"
 
-pandoc proposal.md \
+pandoc docx/proposal.md \
   --from markdown \
   --to docx \
   --standalone \
   --citeproc \
-  --bibliography=references.bib \
-  --reference-doc=reference.docx \
+  --bibliography=latex/references.bib \
+  --reference-doc=docx/reference.docx \
   --output "$tmp_docx"
 
-/Users/songhune/.pyenv/versions/3.10.10/bin/python postprocess_docx.py "$tmp_docx" ../Submission/proposal.docx
+/Users/songhune/.pyenv/versions/3.10.10/bin/python garbage/postprocess_docx.py "$tmp_docx" ../Submission/Team1_proposal.docx
 rm -f "$tmp_docx"
 
-echo "생성 완료: ../Submission/proposal.docx"
+echo "생성 완료: ../Submission/Team1_proposal.docx"

@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+**/.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Environment and local config
+.env
+.env.*
+!.env.example
+*.local
+
+# Secrets and credentials
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.crt
+*.cer
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+*.ovpn
+
+# Cloud credentials
+.aws/
+.gcp/
+.azure/
+
+# Logs and temp
+*.log
+*.tmp
+*.swp

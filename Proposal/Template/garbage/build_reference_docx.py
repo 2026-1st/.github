@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from pathlib import Path
+
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
@@ -82,3 +84,5 @@ for style_name in ['Table', 'Table Grid']:
 
 doc.add_paragraph('', style='Title')
 doc.save('reference.docx')
+output_path = Path(__file__).resolve().parent.parent / 'docx' / 'reference.docx'
+doc.save(output_path)
