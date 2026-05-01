@@ -1,0 +1,143 @@
+
+\documentclass[10pt,a4paper,twocolumn]{article}
+
+\usepackage{iftex}
+\ifPDFTeX
+  \errmessage{This template requires XeLaTeX or LuaLaTeX. In Overleaf, set Compiler to XeLaTeX.}
+\fi
+
+\usepackage{fontspec}
+\usepackage{kotex}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+% 폰트는 kotex 기본 설정을 사용해 환경 차이로 인한 깨짐을 방지한다.
+
+\geometry{top=14mm,bottom=17mm,left=14mm,right=14mm,columnsep=9mm}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black,
+  pdftitle={2026-1 기계학습기초 팀 프로젝트 Proposal},
+  pdfauthor={학생 이름}
+}
+
+\setstretch{1.0}
+\setlength{\parindent}{0.8em}
+\setlength{\parskip}{2pt plus 1pt}
+
+% 하이픈 및 정렬 개선 (Underfull/Overfull hbox 경고 해결)
+\tolerance=1200
+\hyphenpenalty=800
+\exhyphenpenalty=800
+\raggedbottom
+\setlength{\textfloatsep}{4pt plus 1pt minus 1pt}
+\setlength{\floatsep}{4pt plus 1pt minus 1pt}
+\setlength{\intextsep}{4pt plus 1pt minus 1pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+\captionsetup{font=small,skip=3pt}
+
+% 섹션 제목 여백 조정 (titlesec)
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+\titleformat{\section}
+  {\normalfont\fontsize{10pt}{10pt}\bfseries}
+  {\thesection}
+  {0.5em}
+  {}
+
+% 테이블 여백 최적화
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+
+% 리스트 항목 간 간격 축소
+\setlist[itemize]{noitemsep, topsep=2pt, partopsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=2pt, partopsep=0pt}
+
+\title{2026-1 기계학습기초 팀 프로젝트 Proposal}
+\author{}
+\date{}
+
+\begin{document}
+
+\twocolumn[
+\vspace*{-1.2em}
+\begin{center}
+{\LARGE\bfseries 2026-1 기계학습기초 팀 프로젝트 Proposal\par}
+\vspace{0.35em}
+{\normalsize 1팀: 홍길동(2022XXXXX), 김철수(2022XXXXX), 이영희(2022XXXXX)\par}
+{\small 아주대학교 인공지능융합학과 \quad 담당교수: 교수명 입력 \quad 제출일: \today\par}
+\end{center}
+\vspace{-0.6em}
+\begin{abstract}
+본 제안서는 팀 프로젝트의 문제 정의, 데이터 출처, 예상 모델링 전략, 평가 계획, 팀 운영 방식을 1페이지 안에 요약하기 위한 템플릿이다. 프로젝트 안내 문서의 핵심 요구사항을 반영하여 문제 정의의 명확성, 데이터 출처와 사용 가능성, 모델 비교 계획, 역할 분담과 Git 협업 계획을 한 번에 확인할 수 있도록 구성하였다.
+\end{abstract}
+\vspace{-1.0em}
+\noindent\textbf{키워드:} 팀 프로젝트, 아이디어 제안서, 지도학습, 데이터 출처, Git 협업
+\vspace{0.5em}
+]
+
+\section{문제 정의와 목표}
+본 팀은 \textbf{본전공과 연결된 지도학습 문제}를 정의하고, 해당 문제가 실제로 어떤 의사결정에 도움을 줄 수 있는지 설명한다. 문제는 분류 또는 회귀 형태로 명확히 적고, 왜 이 문제가 의미 있는지 한두 문장으로 동기를 제시한다. 예를 들어 ``학과 만족도 예측'', ``장비 고장 여부 분류'', ``수요 예측''처럼 입력과 출력이 분명한 형태로 쓰는 것이 좋다.
+
+\section{데이터 계획}
+프로젝트 안내 문서에 맞게 데이터는 공개적으로 수집 가능해야 하며, \textbf{출처 URL, 다운로드 날짜, 라이선스}를 명시해야 한다. 또한 전처리 이후 기준으로 충분한 표본 수와 변수 수를 확보할 계획을 적는다.
+
+\begin{table}[h]
+\vspace{-6pt}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{\small 데이터 계획 예시}
+\begin{tabularx}{\columnwidth}{@{}p{14mm}X@{}}
+\toprule
+항목 & 내용 \\
+\midrule
+데이터셋 & 예: UCI Adult / Kaggle 공개 데이터 \\
+예측 목표 & 예: 소득 수준 분류 \\
+피처 수 & 10개 이상 확보 예정 \\
+표본 수 & 1{,}000개 이상 확보 예정 \\
+출처 기록 & URL, 날짜, 라이선스 명시 \\
+\bottomrule
+\end{tabularx}
+\vspace{-6pt}
+\end{table}
+
+\section{방법과 평가 계획}
+최소 두 개 이상의 기계학습 알고리즘을 비교한다는 점을 미리 밝히고, 동일한 데이터 분할과 동일한 평가 지표를 사용하겠다고 적는다. 예를 들어 로지스틱 회귀와 랜덤포레스트를 비교하고, 정확도와 F1 점수를 주요 지표로 사용할 수 있다. 가능하다면 기준선 모델, 예상 전처리, 변수 선택 방식도 한 줄씩 포함한다.
+
+\section{팀 운영과 산출물 계획}
+아이디어 제안서 단계에서는 팀별 역할 분담과 Git 협업 계획을 짧게 제시하는 편이 좋다. 이는 이후 Git 활용과 보고서 구성 평가에도 직접 연결된다.
+
+\begin{itemize}[leftmargin=1.5em]
+  \item 홍길동: 데이터 수집 및 전처리 초안
+  \item 김철수: 베이스라인 모델 구현 및 실험 관리
+  \item 이영희: 결과 정리, Proposal 초안, GitHub 문서화
+  \item 저장소 운영: feature 브랜치 기반 작업 후 PR로 병합
+\end{itemize}
+
+\section{기대 효과와 한계}
+마지막 단락에서는 이 프로젝트가 어떤 의미를 가지는지, 그리고 예상되는 제약이 무엇인지 간단히 적는다. 예를 들어 데이터 편향, 클래스 불균형, 피처 부족, 외부 타당성 한계 등을 미리 언급하면 제안서의 완성도가 높아진다.
+
+참고문헌 예시: 공개 데이터셋 소개 문서나 관련 선행 자료를 인용할 수 있다 \cite{daudon2018recurrence}.
+
+\bibliographystyle{ieee_fullname}
+\bibliography{references}
+
+\end{document}
