@@ -19,8 +19,8 @@
 
 | 문서 | 설명 |
 |------|------|
-| [ 프로젝트 안내](https://github.com/2026-1st/Project_intro/blob/main/docs/프로젝트_안내.md) | 개요, 배점, 일정, 팀 구성 원칙, 요구사항, 발표 규정 전체 |
-| [ Git / GitHub 가이드](https://github.com/2026-1st/Project_intro/blob/main/docs/Git_가이드.md) | VCS를 처음 접하는 학생을 위한 Git·GitHub 기초 및 협업 방법 |
+| [ 프로젝트 안내](../docs/프로젝트_안내.md) | 개요, 배점, 일정, 팀 구성 원칙, 요구사항, 발표 규정 전체 |
+| [ Git / GitHub 가이드](../docs/Git_가이드.md) | VCS를 처음 접하는 학생을 위한 Git·GitHub 기초 및 협업 방법 |
 
 ---
 
@@ -40,7 +40,7 @@
 
 - **팀 프로젝트**: 과제 점수의 일부 (10점 → 100점 환산)
 - **발표**: 10점 → 100점 환산
-- 세부 채점 기준은 [프로젝트 안내](https://github.com/2026-1st/Project_intro/blob/main/docs/프로젝트_안내.md)를 참조하세요.
+- 세부 채점 기준은 [프로젝트 안내](,,/docs/프로젝트_안내.md)를 참조하세요.
 
 ---
 
@@ -51,7 +51,7 @@
 1. 팀 GitHub 저장소를 생성합니다.
 2. 팀원 전원을 Collaborator로 초대합니다.
 3. `README.md`에 프로젝트 개요, 실행 방법, 환경 정보를 작성합니다.
-4. Git을 처음 쓰는 팀원은 [Git / GitHub 가이드](https://github.com/2026-1st/Project_intro/blob/main/docs/Git_가이드.md)를 먼저 읽어 주세요.
+4. Git을 처음 쓰는 팀원은 [Git / GitHub 가이드](../docs/Git_가이드.md)를 먼저 읽어 주세요.
 
 ---
 
