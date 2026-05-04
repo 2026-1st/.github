@@ -21,6 +21,7 @@
 |------|------|
 | [ 프로젝트 안내](../docs/프로젝트_안내.md) | 개요, 배점, 일정, 팀 구성 원칙, 요구사항, 발표 규정 전체 |
 | [ Git / GitHub 가이드](../docs/Git_가이드.md) | VCS를 처음 접하는 학생을 위한 Git·GitHub 기초 및 협업 방법 |
+| [ 프로포절 제출 가이드](../Proposal/Submission/SUBMISSION_GUIDE.md) | Submission 상세 가이드 |
 
 ---
 
@@ -52,6 +53,7 @@
 2. 팀원 전원을 Collaborator로 초대합니다.
 3. `README.md`에 프로젝트 개요, 실행 방법, 환경 정보를 작성합니다.
 4. Git을 처음 쓰는 팀원은 [Git / GitHub 가이드](../docs/Git_가이드.md)를 먼저 읽어 주세요.
+5. [ 프로포절 제출 가이드](../Proposal/Submission/SUBMISSION_GUIDE.md)에 따라 제안서를 제출하십시오.
 
 ---
 
