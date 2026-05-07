@@ -29,7 +29,7 @@
 ## 5) 제출 체크
 
 - Proposal/Submission 폴더에 최종본만 유지
-- GitHub 제출 경로: <https://github.com/2026-1st/Project_intro/tree/main/Proposal/Submission>
+- GitHub 제출 경로: [@2026-1st/.github/edit/main/Proposal/Submission/](../Submission/)
 
 ## 6) 커밋 메시지 규칙
 
