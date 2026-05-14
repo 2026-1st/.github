@@ -19,6 +19,12 @@ if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
   exit 1
 fi
 
+if ! "$PYTHON_BIN" -c "import docx, lxml" >/dev/null 2>&1; then
+  echo "필수 Python 패키지(docx, lxml)를 찾을 수 없습니다."
+  echo "예시: $PYTHON_BIN -m pip install python-docx lxml"
+  exit 1
+fi
+
 "$PYTHON_BIN" build_reference_docx.py
 
 tmp_docx="docx/report.raw.docx"
