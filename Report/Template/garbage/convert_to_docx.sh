@@ -12,12 +12,14 @@ if ! command -v pandoc >/dev/null 2>&1; then
   exit 1
 fi
 
-if ! command -v /Users/songhune/.pyenv/versions/3.10.10/bin/python >/dev/null 2>&1; then
-  echo "Python 실행 파일을 찾을 수 없습니다."
+PYTHON_BIN="${PYTHON_BIN:-python3}"
+
+if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
+  echo "Python 실행 파일을 찾을 수 없습니다: $PYTHON_BIN"
   exit 1
 fi
 
-/Users/songhune/.pyenv/versions/3.10.10/bin/python garbage/build_reference_docx.py
+"$PYTHON_BIN" build_reference_docx.py
 
 tmp_docx="docx/report.raw.docx"
 
@@ -30,7 +32,7 @@ pandoc ../report.md \
   --reference-doc=docx/reference.docx \
   --output "$tmp_docx"
 
-/Users/songhune/.pyenv/versions/3.10.10/bin/python garbage/postprocess_docx.py "$tmp_docx" ../Submission/Team1_report.docx
+"$PYTHON_BIN" postprocess_docx.py "$tmp_docx" ../Submission/Team1_report.docx
 rm -f "$tmp_docx"
 
 echo "생성 완료: ../Submission/Team1_report.docx"

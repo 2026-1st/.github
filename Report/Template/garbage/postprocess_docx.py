@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import shutil
 import sys
 import tempfile
@@ -145,8 +146,6 @@ def main(input_path, output_path):
 
 
 if __name__ == '__main__':
-    import os
-
     if len(sys.argv) != 3:
         raise SystemExit('usage: postprocess_docx.py INPUT.docx OUTPUT.docx')
     main(sys.argv[1], sys.argv[2])
