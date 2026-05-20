@@ -136,7 +136,7 @@ link-citations: true
 
 ## References
 
-참고문헌은 `references.bib`를 사용하여 정리한다. 학술 논문, 데이터셋, 오픈소스 라이브러리, 공식 문서 등을 일관된 형식으로 인용한다. 본문 내 인용은 `[@key]` 형식을 사용한다 (예: `[@breiman2001random]`).
+참고문헌은 `references.bib`를 사용하여 정리한다. 학술 논문, 데이터셋, 오픈소스 라이브러리, 공식 문서 등을 일관된 형식으로 인용한다. 본문 내 인용은 `[@key]` 형식을 사용한다 (예: `[@breiman2001random]`). Word의 경우, MLA 스타일을 인용해 작성한다.
 
 ## Appendix (Optional)
 
