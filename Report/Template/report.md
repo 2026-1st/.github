@@ -3,8 +3,8 @@ title: "2026-1 기계학습기초 팀 프로젝트 Final Report"
 author: "1팀: 홍길동(2022XXXXX), 김철수(2022XXXXX), 이영희(2022XXXXX)"
 date: "2026-06-12"
 lang: ko-KR
-fontsize: 10pt
-bibliography: references.bib
+fontsize: 10pt / 본문내부 : 나눔명조 / 표/그림 : 나눔고딕 / 코드 : Consolas
+bibliography: references.bib / word사용시 MLA 스타일
 link-citations: true
 ---
 
@@ -16,7 +16,7 @@ link-citations: true
 
 **Abstract.** 본 보고서는 팀 프로젝트의 문제 정의, 관련 연구, 방법론, 실험 설정, 주요 결과, 해석 및 한계를 종합적으로 정리한 최종 보고서이다. 프로젝트의 목적과 기여를 명확히 제시하고, 재현 가능한 수준으로 실험 과정을 서술하며, 결과에 대한 분석과 향후 개선 방향까지 포함하여 작성한다. Abstract는 약 150–200 단어로 간결하게 작성한다.
 
-**Keywords:** 팀 프로젝트, 기계학습, 실험 분석, 결과 해석, Git 협업
+**Keywords:** (예시) 팀 프로젝트, 기계학습, 실험 분석, 결과 해석, Git 협업
 
 ---
 
@@ -95,7 +95,7 @@ link-citations: true
 - 교차검증 사용 여부
 - 실험 환경 (CPU/GPU, 라이브러리 버전 등)
 - 평가 지표 (Accuracy, F1, RMSE 등)
-- 비교 실험 또는 ablation study 설계
+- 비교 실험 또는 ablation study (애블레이션 연구(Ablation Study)는 인공지능이나 머신러닝에서 "우리가 제안한 모델/기법이 실제로 성능 향상에 기여했는가?"를 증명하기 위해, 특정 구성 요소를 제거하거나 변경해 가며 성능 변화를 관찰하는 실험 분석 방법) 설계
 
 ## 5. Results
 
