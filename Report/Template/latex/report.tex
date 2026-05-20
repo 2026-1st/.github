@@ -1,10 +1,407 @@
-
+% ---------------------------------------------------------------------------
+% 2026-1 기계학습기초 팀 프로젝트 Final Report
+% arXiv preprint style (XeLaTeX)
+% ---------------------------------------------------------------------------
 \documentclass[10pt,a4paper,twocolumn]{article}
 
+% ---------------------------------------------------------------------------
+% Engine check
+% ---------------------------------------------------------------------------
 \usepackage{iftex}
 \ifPDFTeX
   \errmessage{This template requires XeLaTeX or LuaLaTeX. In Overleaf, set Compiler to XeLaTeX.}
 \fi
+
+% ---------------------------------------------------------------------------
+% Language & Font (Korean support via kotex + fontspec)
+% ---------------------------------------------------------------------------
+\usepackage{fontspec}
+\usepackage{kotex}
+
+% ---------------------------------------------------------------------------
+% Layout
+% ---------------------------------------------------------------------------
+\usepackage[
+  a4paper,
+  top=19.1mm, bottom=25.4mm,
+  left=17mm,  right=17mm,
+  columnsep=8mm
+]{geometry}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+% ---------------------------------------------------------------------------
+% Math
+% ---------------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% ---------------------------------------------------------------------------
+% Figures & Tables
+% ---------------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ---------------------------------------------------------------------------
+% Lists
+% ---------------------------------------------------------------------------
+\usepackage{enumitem}
+
+% ---------------------------------------------------------------------------
+% Colors
+% ---------------------------------------------------------------------------
+\usepackage{xcolor}
+
+% ---------------------------------------------------------------------------
+% Section headings  (arXiv / NeurIPS style)
+% ---------------------------------------------------------------------------
+\usepackage{titlesec}
+
+% ---------------------------------------------------------------------------
+% Bibliography  (numbered, in citation order — standard arXiv/ML style)
+% ---------------------------------------------------------------------------
+\usepackage[numbers,compress]{natbib}
+
+% ---------------------------------------------------------------------------
+% Hyperref (load last)
+% ---------------------------------------------------------------------------
+\usepackage[
+  colorlinks = true,
+  linkcolor  = black,
+  citecolor  = black,
+  urlcolor   = blue,
+  pdftitle   = {2026-1 기계학습기초 팀 프로젝트 Final Report},
+  pdfauthor  = {1팀}
+]{hyperref}
+
+% ===========================================================================
+% Global typography
+% ===========================================================================
+\setlength{\parindent}{1em}
+\setlength{\parskip}{2pt plus 1pt}
+\setstretch{1.05}
+\raggedbottom
+
+% Float spacing
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+\setlength{\abovedisplayskip}{4pt plus 1pt}
+\setlength{\belowdisplayskip}{4pt plus 1pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+
+% Caption style
+\captionsetup{font=small, labelfont=bf, labelsep=period, skip=4pt}
+
+% Hyphenation / line break tolerance
+\tolerance=1200
+\hyphenpenalty=800
+\exhyphenpenalty=800
+
+% ===========================================================================
+% Section format  (arXiv / NeurIPS style)
+% ===========================================================================
+% Numbered, uppercase section titles  →  "1. INTRODUCTION"
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries}
+  {\thesection.}{0.5em}{\MakeUppercase}
+\titlespacing*{\section}{0pt}{10pt plus 2pt}{4pt plus 1pt}
+
+% Subsection: bold italic  →  "4.1 Dataset"
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries\itshape}
+  {\thesubsection}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
+
+% Subsubsection: italic run-in
+\titleformat{\subsubsection}[runin]
+  {\normalfont\normalsize\itshape}
+  {\thesubsubsection}{0.5em}{}[.]
+\titlespacing*{\subsubsection}{0pt}{4pt}{0.5em}
+
+% ===========================================================================
+% Table helpers
+% ===========================================================================
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\renewcommand{\arraystretch}{1.15}
+
+% ===========================================================================
+% List spacing
+% ===========================================================================
+\setlist[itemize]{noitemsep, topsep=2pt, partopsep=0pt, leftmargin=1.5em}
+\setlist[enumerate]{noitemsep, topsep=2pt, partopsep=0pt, leftmargin=1.5em}
+
+% ===========================================================================
+% Title block
+% ===========================================================================
+\title{%
+  \large\bfseries 2026-1 기계학습기초 팀 프로젝트 Final Report
+}
+\author{%
+  홍길동\textsuperscript{\dag}
+  \quad 김철수\textsuperscript{\dag}
+  \quad 이영희\textsuperscript{\dag}
+  \\[4pt]
+  \small\textsuperscript{\dag}아주대학교 인공지능융합학과
+  \\[2pt]
+  \small\texttt{\{hong, kim, lee\}@ajou.ac.kr}
+}
+\date{%
+  \small 제출일: 2026년 6월 12일
+  \quad|\quad 담당교수: 교수명 입력
+}
+
+% ===========================================================================
+\begin{document}
+
+% ---------------------------------------------------------------------------
+% Full-width header: title · abstract · keywords
+% (single-column section before the two-column body)
+% ---------------------------------------------------------------------------
+\twocolumn[{%
+  \maketitle
+  \vspace{-4pt}
+  \noindent\rule{\linewidth}{0.8pt}
+  \vspace{4pt}
+  \begin{center}
+    \begin{minipage}{0.96\linewidth}
+      \small
+      \textbf{Abstract.}\enspace
+      본 보고서는 팀 프로젝트의 문제 정의, 관련 연구, 방법론, 실험 설정, 주요 결과,
+      해석 및 한계를 종합적으로 정리한 최종 보고서이다. 프로젝트의 목적과 기여를
+      명확히 제시하고, 재현 가능한 수준으로 실험 과정을 서술하며, 결과에 대한 분석과
+      향후 개선 방향까지 포함하여 작성한다. Abstract는 약 150--200 단어로 간결하게
+      작성한다.
+    \end{minipage}
+  \end{center}
+  \vspace{4pt}
+  \noindent\textbf{Keywords:} 팀 프로젝트, 기계학습, 실험 분석, 결과 해석, Git 협업
+  \vspace{4pt}
+  \noindent\rule{\linewidth}{0.8pt}
+  \vspace{8pt}
+}]
+
+% ===========================================================================
+\section{Introduction}
+% ===========================================================================
+
+이 절에서는 프로젝트가 다루는 문제의 배경과 필요성을 설명한다. 왜 이 문제가 중요한지,
+어떤 실제적 또는 학술적 의미가 있는지를 서술하고, 본 프로젝트에서 해결하고자 하는
+과제를 명확히 정의한다. 또한 프로젝트의 주요 목표와 핵심 기여를 요약한다.
+
+포함 권장 흐름:
+\begin{itemize}
+  \item 문제 배경과 동기
+  \item 해결하고자 하는 예측 또는 분류 과제 정의
+  \item 프로젝트의 주요 목표와 기여 요약
+  \item 이하 절의 구성 안내
+\end{itemize}
+
+% ===========================================================================
+\section{Related Work}
+% ===========================================================================
+
+이 절에서는 기존 연구, 유사한 접근 방식, 혹은 이 문제를 이해하기 위해 필요한
+배경지식을 정리한다. 학술 논문, 공개 프로젝트, benchmark, baseline 모델 등을 조사하여
+본 프로젝트가 어떤 맥락에 위치하는지 설명한다~\cite{breiman2001random, chen2016xgboost}.
+
+필요에 따라 이 절의 제목은 \emph{Background} 또는 \emph{Problem Setting}으로
+조정할 수 있다.
+
+포함 권장 항목:
+\begin{itemize}
+  \item 기존 연구 또는 유사 프로젝트 요약
+  \item 대표적인 접근 방식 비교
+  \item 본 프로젝트와 기존 방법의 차이점
+  \item 참고한 데이터셋 또는 baseline 소개
+\end{itemize}
+
+% ===========================================================================
+\section{Approach}
+% ===========================================================================
+
+이 절에서는 문제를 해결하기 위해 사용한 전체 접근 방법을 설명한다. 전처리 전략,
+모델 선택, 학습 절차, 하이퍼파라미터 설정 등을 독자가 이해할 수 있도록 서술한다.
+
+\subsection{Overall Pipeline}
+
+전체 파이프라인 개요를 설명한다. 필요하다면 그림을 추가하여 데이터 흐름 또는
+시스템 구조를 나타낼 수 있다.
+
+\subsection{Preprocessing}
+
+결측치 처리, 정규화, feature engineering 방법을 기술한다.
+
+\subsection{Models}
+
+사용한 모델과 알고리즘, 하이퍼파라미터 설정 근거를 설명한다. 최소 두 개 이상의
+기계학습 알고리즘을 비교해야 한다~\cite{pedregosa2011scikit}.
+
+포함 권장 항목:
+\begin{itemize}
+  \item 베이스라인 모델 설명
+  \item 비교 모델 설명
+  \item 하이퍼파라미터 설정 근거
+  \item 사용한 라이브러리 및 구현 환경
+\end{itemize}
+
+% ===========================================================================
+\section{Experiment}
+% ===========================================================================
+
+이 절에서는 실험 설계와 사용한 데이터셋을 구체적으로 설명한다. 동일한 조건에서
+여러 모델을 비교할 수 있도록 데이터 분할, 실험 환경, 평가 지표를 명시한다.
+
+\subsection{Dataset}
+
+\begin{table}[h]
+\vspace{-4pt}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{데이터셋 정보}
+\begin{tabularx}{\columnwidth}{@{}p{15mm}X@{}}
+\toprule
+항목 & 내용 \\
+\midrule
+데이터셋 & 예: UCI Adult / Kaggle 공개 데이터 \\
+예측 목표 & 예: 소득 수준 분류 \\
+표본 수 & 예: 10{,}000 \\
+피처 수 & 예: 18 \\
+출처 & URL, 날짜, 라이선스 명시 \\
+\bottomrule
+\end{tabularx}
+\vspace{-4pt}
+\end{table}
+
+포함 권장 항목:
+\begin{itemize}
+  \item 데이터셋 이름과 출처 (URL, 다운로드 날짜, 라이선스)~\cite{dua2019uci}
+  \item 전체 샘플 수와 주요 변수 수
+  \item 예측 대상(target)과 입력 피처(feature)
+  \item 결측치, 이상치, 클래스 불균형 등 데이터 특성
+\end{itemize}
+
+\subsection{Experimental Setup}
+
+\begin{table}[h]
+\vspace{-4pt}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{실험 설정}
+\begin{tabularx}{\columnwidth}{@{}p{18mm}X@{}}
+\toprule
+항목 & 설정 \\
+\midrule
+데이터 분할 & train 70\% / val 15\% / test 15\% \\
+평가지표 & Accuracy, Macro-F1 \\
+베이스라인 & Logistic Regression \\
+비교 모델 & Random Forest, XGBoost \\
+실험 환경 & Python 3.10, scikit-learn 1.4 \\
+\bottomrule
+\end{tabularx}
+\vspace{-4pt}
+\end{table}
+
+포함 권장 항목:
+\begin{itemize}
+  \item train / validation / test 분할 방식
+  \item 교차검증 사용 여부
+  \item 실험 환경 (CPU/GPU, 라이브러리 버전)
+  \item 평가 지표 및 ablation study 설계
+\end{itemize}
+
+% ===========================================================================
+\section{Results}
+% ===========================================================================
+
+이 절에서는 주요 정량적 결과를 표와 그림 중심으로 제시한다. 단순히 수치를 나열하는
+데 그치지 않고, 어떤 모델이 어떤 지표에서 우수했는지 명확하게 드러나도록 구성한다.
+
+\begin{table}[h]
+\vspace{-4pt}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{모델별 성능 비교}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+모델 & Accuracy & F1-score & 비고 \\
+\midrule
+Baseline (LR)  & 0.812 & 0.801 & 기본 설정 \\
+Random Forest  & 0.846 & 0.838 & feat.\ eng. 적용 \\
+XGBoost        & \textbf{0.861} & \textbf{0.854} & 최종 선택 \\
+\bottomrule
+\end{tabular}
+\vspace{-4pt}
+\end{table}
+
+포함 권장 항목:
+\begin{itemize}
+  \item 모델별 성능 비교 표 (예: Table~3)
+  \item confusion matrix, ROC curve, loss curve 등 시각화
+  \item 주요 결과 요약 및 baseline 대비 개선 여부
+\end{itemize}
+
+% ===========================================================================
+\section{Analysis / Discussion}
+% ===========================================================================
+
+이 절에서는 결과를 해석하고, 왜 그런 결과가 나왔는지 분석한다. 성능이 잘 나온 이유와
+잘 나오지 않은 이유를 모두 다루며, 실패 사례와 한계점도 함께 정리한다. 단순히
+``성능이 높았다/낮았다''로 끝내지 말고, 가능한 근거를 들어 설명한다.
+
+포함 권장 항목:
+\begin{itemize}
+  \item 성능 차이에 대한 원인 분석
+  \item 중요한 feature 또는 모델 특성 해석
+  \item 오분류/오예측 사례 분석
+  \item 데이터 품질 또는 실험 설계의 한계
+  \item 개선 방향 및 후속 연구 아이디어
+\end{itemize}
+
+% ===========================================================================
+\section{Conclusion}
+% ===========================================================================
+
+이 절에서는 프로젝트 전체를 간단히 요약한다. 어떤 문제를 다뤘고, 어떤 방법을
+사용했으며, 어떤 결과와 의미를 얻었는지를 정리한다. 마지막으로 향후 확장 가능성이나
+실제 적용 가능성을 짧게 덧붙일 수 있다.
+
+% ===========================================================================
+% References  (arXiv numbered style)
+% ===========================================================================
+\bibliographystyle{abbrvnat}
+\bibliography{references}
+
+% ===========================================================================
+% Appendix (Optional)
+% ===========================================================================
+\appendix
+
+\section*{Appendix}
+
+필요한 경우 부록을 추가할 수 있다.
+
+\begin{itemize}
+  \item 추가 실험 결과
+  \item 하이퍼파라미터 상세표
+  \item 데이터 전처리 세부 절차
+  \item 모델 구조 그림
+  \item 역할 분담 및 GitHub 협업 로그 요약
+\end{itemize}
+
+\end{document}
+
 
 \usepackage{fontspec}
 \usepackage{kotex}
