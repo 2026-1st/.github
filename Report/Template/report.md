@@ -1,6 +1,6 @@
 ---
-title: "2026-1 기계학습기초 팀 프로젝트 Final Report"
-author: "1팀: 홍길동(2022XXXXX), 김철수(2022XXXXX), 이영희(2022XXXXX)"
+title: "2026-1 기계학습기초 팀-0 프로젝트 Final Report"
+author: "1팀: 팀장: 홍길동(2026XXXXX), 팀원: 김철수(2026XXXXX), 이영희(2026XXXXX)"
 date: "2026-06-12"
 lang: ko-KR
 fontsize: 10pt / 본문내부 : 나눔명조 / 표/그림 : 나눔고딕 / 코드 : Consolas
